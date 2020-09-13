@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RunWith(SpringRunner.class)
 @TestPropertySource(locations="classpath:application-test.properties")
-public class OrderGeneratorTests {
+public class OrderGeneratorIT {
 
     @Mock
     private RestTemplate restTemplate;
