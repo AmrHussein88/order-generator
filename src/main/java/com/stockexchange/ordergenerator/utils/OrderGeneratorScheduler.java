@@ -11,7 +11,7 @@ public class OrderGeneratorScheduler {
     private OrderService orderService;
 
     @Scheduled(fixedDelayString = "${order.generator.fixed.delay}")
-    void generateOrderJob(){
+    void generateOrderJob() {
         orderService.generateOrder();
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -32,14 +33,14 @@ public class OrderServiceImpl implements OrderService {
         OrderDto order = createOrder();
         String orderProcessUrl = url + processOrderEndpoint;
         OrderDto orderDto = restTemplate.postForObject(orderProcessUrl, order, OrderDto.class);
-        System.out.println("New processed order is "+ orderDto);
+        System.out.println("New processed order is " + orderDto);
         return orderDto;
     }
 
     private OrderDto createOrder() {
         //Randomly pick order symbol and assign random quantity
         Random random = new Random();
-        int range = random.nextInt((10-1) +1)+1 ;
+        int range = random.nextInt((10 - 1) + 1) + 1;
         OrderDto order = new OrderDto();
         List<OrderNameEnum> names = Arrays.stream(OrderNameEnum.values()).collect(Collectors.toList());
         order.setSymbol(names.get(random.nextInt(names.size())).name());

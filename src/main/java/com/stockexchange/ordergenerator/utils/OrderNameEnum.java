@@ -5,7 +5,8 @@ public enum OrderNameEnum {
     HUAWEI("HUAWEI"),
     SAMSUNG("SAMSUNG");
     private final String orderName;
-     OrderNameEnum(final String orderName){
+
+    OrderNameEnum(final String orderName) {
         this.orderName = orderName;
     }
 }
