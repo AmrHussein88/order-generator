@@ -26,13 +26,14 @@ public class OrderServiceImpl implements OrderService {
     private String processOrderEndpoint;
 
     @Override
-    public void generateOrder() {
+    public OrderDto generateOrder() {
         logger.info("Start generating new order");
 
         OrderDto order = createOrder();
         String orderProcessUrl = url + processOrderEndpoint;
         OrderDto orderDto = restTemplate.postForObject(orderProcessUrl, order, OrderDto.class);
         System.out.println("New processed order is "+ orderDto);
+        return orderDto;
     }
 
     private OrderDto createOrder() {
